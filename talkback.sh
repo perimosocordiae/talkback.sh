@@ -1,6 +1,9 @@
 # talkback.sh - Have your computer read back the commands you run.
 # Usage: source talkback.sh
 
+# TODO: set this more intelligently for non-Mac systems.
+text_to_speech='say'
+
 # Function that runs before the command is executed.
 # Add more -e replacements to the sed call as needed.
 preexec () {
@@ -8,7 +11,7 @@ preexec () {
            -e 's/\|/ pipe /g' \
            -e 's/\*/ star /g' \
            <<<$@`
-  sh -c "say \"$cmd\" &" 2>/dev/null;
+  sh -c "$text_to_speech \"$cmd\" &" 2>/dev/null;
 }
 
 # Idea borrowed from http://superuser.com/a/175802/74234
