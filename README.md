@@ -15,9 +15,11 @@ are spoken back to you.
 
 ## Caveats
 
-So far, this has only been tested on OS X.
-For support on other systems,
-a replacement for the `say` command will be needed.
+So far, this has only been tested on OS X and Ubuntu 14.04.
+For Ubuntu support, you'll need `espeak` (available via `apt-get`).
+
+For support on other systems, or to use a custom TTS program,
+edit the `DEFAULT_TTS` variable to your text-to-speech engine of choice.
 
 ## Why?
 
