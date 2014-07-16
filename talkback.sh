@@ -14,7 +14,7 @@ fi
 
 SED='sed'
 # Use 'sed -r' if we're using GNU sed.
-$SED -re '' <<<'' && SED='sed -r'
+$SED -re '' <<<'' 2>/dev/null && SED='sed -r'
 
 # Function that runs before the command is executed.
 # Add more -e replacements to the sed call as needed.
@@ -24,8 +24,7 @@ preexec () {
              -e 's/\*/ star /g' \
              -e 's/"//g' \
              <<<"$@")
-  echo "$text_to_speech \"$cmd\""
-  # sh -c "$text_to_speech \"$cmd\" &" 2>/dev/null;
+  sh -c "$text_to_speech \"$cmd\" &" 2>/dev/null;
 }
 
 # Idea borrowed from http://superuser.com/a/175802/74234
