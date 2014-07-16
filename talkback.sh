@@ -22,7 +22,8 @@ preexec () {
   cmd=$($SED -e 's/\./ dot /g' \
              -e 's/\|/ pipe /g' \
              -e 's/\*/ star /g' \
-             -e 's/"//g' \
+             -e 's/['\'']//g' \
+             -e 's/[/]/ /g' \
              <<<"$@")
   sh -c "$text_to_speech \"$cmd\" &" 2>/dev/null;
 }
